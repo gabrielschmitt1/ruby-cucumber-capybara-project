@@ -8,6 +8,8 @@ run_scripts:
   stage: test
   script:
     - rm -rf Gemfile.lock
+    - rm -rf Gemfile.lock
+    - bundle install
     - bundle install
     - echo 'Rodando testes de regressao'
     - bundle exec cucumber -p ci
