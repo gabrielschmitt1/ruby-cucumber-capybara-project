@@ -1,0 +1,17 @@
+#image: "ruby:2.6"
+image: "qaninja/rubywd"
+
+stages:
+  - test
+
+run_scripts:
+  stage: test
+  script:
+    - rm -rf Gemfile.lock
+    - bundle install
+    - echo 'Rodando testes de regressao'
+    - bundle exec cucumber -p ci
+
+  artifacts:
+    paths:
+      - logs/
